@@ -7,7 +7,7 @@ public class Ant : Enemy
     [SerializeField] private GameObject food;
     [SerializeField] private float speed; 
 
-    public Ant() : base(1) { }
+    public Ant() : base(1, 1) { }
 
     // Update is called once per frame
     void Update()
