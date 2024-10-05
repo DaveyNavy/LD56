@@ -7,11 +7,19 @@ public class Enemy : MonoBehaviour
     private int health;
     private int damageToFood;
     private int maxHealth;
-    public Enemy(int health, int damageToFood)
+    private int score;
+    private GameManager gameManager;
+    public Enemy(int health, int damageToFood, int score)
     {
         this.health = health;
-        maxHealth = health;
+        this.maxHealth = health;
         this.damageToFood = damageToFood;
+        this.score = score;
+    }
+
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     public void TakeDamage(int damage)
     {
@@ -21,15 +29,14 @@ public class Enemy : MonoBehaviour
     public void Kill()
     {
         Destroy(gameObject);
+        gameManager.IncreaseScore(score);
     }
 
     private void OnMouseUp()
     {
         TakeDamage(1);
-        Debug.Log(health);
         if (health <= 0)
         {
-            Debug.Log(health);
             Kill();
         }
     }
