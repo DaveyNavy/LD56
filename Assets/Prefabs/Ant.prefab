@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4726647165829442269}
   m_Layer: 0
   m_Name: Ant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a046c3e92a5747d8a16e25f781194c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 0}
   speed: 1
+  position: {x: 0, y: 0, z: 0}
 --- !u!50 &-4726647165829442269
 Rigidbody2D:
   serializedVersion: 4
