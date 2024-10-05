@@ -13,7 +13,6 @@ public class Food : MonoBehaviour
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             health -= enemy.GetDamageToFood();
             enemy.Kill();
-            Debug.Log(health);
         }
     }
 }
