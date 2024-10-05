@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Ant : Enemy
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 0;
     [SerializeField] private Vector3 position;
 
     public Ant() : base(1, 1) { }
+
+    private void Awake()
+    {
+        speed = 1;
+    }
 
     // Update is called once per frame
     void Update()

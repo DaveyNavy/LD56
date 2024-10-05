@@ -18,7 +18,7 @@ public class Mob_Spawner : MonoBehaviour
     public float minDistanceFromCenter = 3f;
 
     // Maximum number of objects to spawn
-    public int maxSpawnCount = 10;
+    public int maxSpawnCount = 9999;
 
     private int currentSpawnCount = 0;
 
@@ -45,9 +45,9 @@ public class Mob_Spawner : MonoBehaviour
         do
         {
             randomPosition = new Vector3(
-                Random.Range(-spawnAreaSize, spawnAreaSize),
-                0, // Assuming a 2D game; change this if you need a 3D height
-                Random.Range(-spawnAreaSize, spawnAreaSize)
+                Mathf.Pow(-1, Random.Range(1,2)) * Random.Range(3, spawnAreaSize),
+                Mathf.Pow(-1, Random.Range(1, 2)) * Random.Range(3, spawnAreaSize),
+                0
             );
         } 
         while (randomPosition.magnitude < minDistanceFromCenter); // Ensure it is far from the center
