@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     {
         this.health = health;
     }
-
     public void TakeDamage(int damage)
     {
         this.health -= damage;
