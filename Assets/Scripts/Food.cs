@@ -5,6 +5,7 @@ using UnityEngine;
 public class Food : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +14,18 @@ public class Food : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             health -= enemy.GetDamageToFood();
             enemy.Kill();
+            Debug.Log(health);
         }
+        
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }

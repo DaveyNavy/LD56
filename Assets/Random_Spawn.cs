@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mob_Spawner : MonoBehaviour
 {
-    
+    [SerializeField] Vector3 offset;
     // Reference to the object you want to spawn
     public GameObject objectToSpawn;
 
@@ -48,7 +48,7 @@ public class Mob_Spawner : MonoBehaviour
                 Mathf.Pow(-1, Random.Range(1,2)) * Random.Range(3, spawnAreaSize),
                 Mathf.Pow(-1, Random.Range(1, 2)) * Random.Range(3, spawnAreaSize),
                 0
-            );
+            ) + offset;
         } 
         while (randomPosition.magnitude < minDistanceFromCenter); // Ensure it is far from the center
 
