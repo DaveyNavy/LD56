@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private int health = 10;
-    public Enemy(int health)
+    private int health;
+    private int damageToFood;
+    public Enemy(int health, int damageToFood)
     {
         this.health = health;
+        this.damageToFood = damageToFood;
     }
-
     public void TakeDamage(int damage)
     {
         this.health -= damage;
@@ -29,5 +30,10 @@ public class Enemy : MonoBehaviour
             Debug.Log(health);
             Kill();
         }
+    }
+
+    public int GetDamageToFood()
+    {
+        return damageToFood;
     }
 }
