@@ -4,27 +4,21 @@ using UnityEngine;
 
 public class Mob_Spawner : MonoBehaviour
 {
-    
-    // Reference to the object you want to spawn
     public GameObject objectToSpawn;
 
-    // Time between spawns
     public float spawnInterval = 1f;
 
-    // Spawn area boundaries
     public float spawnAreaSize = 10f;
 
-    // Minimum distance from the center
     public float minDistanceFromCenter = 3f;
 
-    // Maximum number of objects to spawn
     public int maxSpawnCount = 9999;
 
     private int currentSpawnCount = 0;
 
     private void Start()
     {
-        // Start the coroutine to spawn objects
+     
         StartCoroutine(SpawnObjects());
     }
 
@@ -34,23 +28,43 @@ public class Mob_Spawner : MonoBehaviour
         {
             SpawnObjectAtRandom();
             currentSpawnCount++;
-            yield return new WaitForSeconds(spawnInterval); // Wait for specified seconds
+            yield return new WaitForSeconds(spawnInterval); 
         }
     }
 
     private void SpawnObjectAtRandom()
     {
-        Vector3 randomPosition;
+        Camera camera = Camera.main;
+        if (camera == null) return; 
 
-        do
+        Vector3 bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
+        Vector3 topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, camera.nearClipPlane));
+
+        float x = 0;
+        float y = 0;
+
+        int edge = Random.Range(0, 4);
+        switch (edge)
         {
-            randomPosition = new Vector3(
-                Mathf.Pow(-1, Random.Range(1,2)) * Random.Range(3, spawnAreaSize),
-                Mathf.Pow(-1, Random.Range(1, 2)) * Random.Range(3, spawnAreaSize),
-                0
-            );
-        } 
-        while (randomPosition.magnitude < minDistanceFromCenter); // Ensure it is far from the center
+            case 0: // Bottom edge
+                x = Random.Range(bottomLeft.x, topRight.x);
+                y = bottomLeft.y;
+                break;
+            case 1: // Top edge
+                x = Random.Range(bottomLeft.x, topRight.x);
+                y = topRight.y;
+                break;
+            case 2: // Left edge
+                x = bottomLeft.x;
+                y = Random.Range(bottomLeft.y, topRight.y);
+                break;
+            case 3: // Right edge
+                x = topRight.x;
+                y = Random.Range(bottomLeft.y, topRight.y);
+                break;
+        }
+
+        Vector3 randomPosition = new Vector3(x, y, 0);
 
         Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
     }
