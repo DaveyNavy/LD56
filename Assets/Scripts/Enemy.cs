@@ -6,9 +6,11 @@ public class Enemy : MonoBehaviour
 {
     private int health;
     private int damageToFood;
+    private int maxHealth;
     public Enemy(int health, int damageToFood)
     {
         this.health = health;
+        maxHealth = health;
         this.damageToFood = damageToFood;
     }
     public void TakeDamage(int damage)
@@ -35,5 +37,15 @@ public class Enemy : MonoBehaviour
     public int GetDamageToFood()
     {
         return damageToFood;
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }
