@@ -22,6 +22,6 @@ public class Ant : Enemy
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(this.transform.position, position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
     }
 }

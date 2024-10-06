@@ -28,6 +28,8 @@ public class Mob_Spawner : MonoBehaviour
 
         bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
         topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, camera.nearClipPlane));
+        Debug.Log(topRight);
+
         StartCoroutine(SpawnObjects());
     }
 
@@ -68,7 +70,7 @@ public class Mob_Spawner : MonoBehaviour
         }
 
         Vector3 randomPosition = new Vector3(x, y, 0) + offset;
-
+        Debug.Log(randomPosition);
         Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
     }
 }

@@ -36,4 +36,9 @@ public class GameManager : MonoBehaviour
     {
         score += s;
     }
+
+    public int GetScore()
+    {
+        return score;
+    }
 }

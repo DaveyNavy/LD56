@@ -18,6 +18,7 @@ public class EnemyHealthBarScript : MonoBehaviour
     private void Update()
     {
         healthBar.value = enemy.GetHealth();
+        transform.position = enemy.transform.position + new Vector3(0, 1, 0);
     }
     public void SetHealth(int hp)
     {
