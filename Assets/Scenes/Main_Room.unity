@@ -833,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+  eatSoundClip: {fileID: 8300000, guid: dde53afdff29d49aeb59388b8ae7ed5e, type: 3}
 --- !u!1 &690514218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 0
+  eatSoundClip: {fileID: 8300000, guid: 9d9c9bd73eb3f44569f4b5b5b949afa4, type: 3}
 --- !u!61 &836795467
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1549,6 +1551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 0
+  eatSoundClip: {fileID: 8300000, guid: 42e22a1fa47ea47aab6a40c8cc0b614f, type: 3}
 --- !u!61 &1096748434
 BoxCollider2D:
   m_ObjectHideFlags: 0

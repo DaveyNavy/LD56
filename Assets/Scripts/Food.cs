@@ -6,6 +6,8 @@ public class Food : MonoBehaviour
 {
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
+    [SerializeField] private AudioClip  eatSoundClip;
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +17,7 @@ public class Food : MonoBehaviour
             health -= enemy.GetDamageToFood();
             enemy.Kill();
             Debug.Log(health);
+            AudioSource.PlayClipAtPoint(eatSoundClip, transform.position, 1f);
         }
         
     }
