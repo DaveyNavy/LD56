@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private AudioClip  damageSoundClip;
     private int health;
     private int damageToFood;
     private int maxHealth;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     private void OnMouseUp()
     {
         TakeDamage(1);
+        AudioSource.PlayClipAtPoint(damageSoundClip, transform.position, 1f); 
         Debug.Log(health);
         if (health <= 0)
         {
