@@ -25,7 +25,14 @@ public class Enemy : MonoBehaviour
 
     public void Kill()
     {
-        Destroy(gameObject);
+        if (transform.parent != null)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnMouseUp()
