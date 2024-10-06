@@ -16,7 +16,6 @@ public class Food : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             health -= enemy.GetDamageToFood();
             enemy.Kill();
-            Debug.Log(health);
             AudioSource.PlayClipAtPoint(eatSoundClip, transform.position, 1f);
         }
     }

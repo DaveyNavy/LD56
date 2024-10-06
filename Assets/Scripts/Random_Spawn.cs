@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mob_Spawner : MonoBehaviour
+public class Random_Spawn : MonoBehaviour
 {
     public GameObject objectToSpawn;
 
@@ -70,7 +70,6 @@ public class Mob_Spawner : MonoBehaviour
         }
 
         Vector3 randomPosition = new Vector3(x, y, 0) + offset;
-        Debug.Log(randomPosition);
         Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
     }
 }

@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8680114c09c469746b8dd9223c0fb309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 7117646255051207542, guid: b68b0b17b09e70d4cb300a4c9b96de32, type: 3}
-  spawnInterval: 3
+  objectToSpawn: {fileID: 0}
+  spawnInterval: 1
   maxSpawnCount: 100
