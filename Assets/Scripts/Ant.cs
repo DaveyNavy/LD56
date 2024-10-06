@@ -7,7 +7,7 @@ public class Ant : Enemy
     [SerializeField] private float speed = 0;
     [SerializeField] private Vector3 position;
     float angle;
-    public Ant() : base(2, 1, 1) { }
+    public Ant() : base(1, 1, 5) { }
 
     private void Awake()
     {

@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    
     [SerializeField] private AudioClip  damageSoundClip;
     [SerializeField] private AudioClip  deathSoundClip;
     private int health;
     private int damageToFood;
     private int maxHealth;
     private int score;
-    private GameManager gameManager;
     public Enemy(int health, int damageToFood, int score)
     {
         this.health = health;
@@ -20,10 +18,6 @@ public class Enemy : MonoBehaviour
         this.score = score;
     }
 
-    void Start()
-    {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
     public void TakeDamage(int damage)
     {
         this.health -= damage;
@@ -32,7 +26,6 @@ public class Enemy : MonoBehaviour
     public void Kill()
     {
         Destroy(gameObject);
-        gameManager.IncreaseScore(score);
     }
 
     private void OnMouseUp()
@@ -45,8 +38,9 @@ public class Enemy : MonoBehaviour
         }
         if (health <= 0)
         {
-            AudioSource.PlayClipAtPoint(deathSoundClip, transform.position, 1f);
             Kill();
+            GameManager.instance.IncreaseScore(score);
+            AudioSource.PlayClipAtPoint(deathSoundClip, transform.position, 1f);
         }
     }
 

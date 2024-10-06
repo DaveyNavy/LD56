@@ -19,7 +19,6 @@ public class Food : MonoBehaviour
             Debug.Log(health);
             AudioSource.PlayClipAtPoint(eatSoundClip, transform.position, 1f);
         }
-        
     }
 
     public int GetHealth()

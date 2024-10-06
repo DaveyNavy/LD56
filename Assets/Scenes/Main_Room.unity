@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_Name
-      value: Random_Spawner (1)
+      value: Ant Spawner Room 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -382,7 +382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 358087547}
   - component: {fileID: 358087546}
-  - component: {fileID: 358087545}
   m_Layer: 0
   m_Name: Camera Room 2
   m_TagString: Untagged
@@ -390,14 +389,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &358087545
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358087544}
-  m_Enabled: 1
 --- !u!20 &358087546
 Camera:
   m_ObjectHideFlags: 0
@@ -834,6 +825,75 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   eatSoundClip: {fileID: 8300000, guid: dde53afdff29d49aeb59388b8ae7ed5e, type: 3}
+--- !u!1001 &686862808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: maxSpawnCount
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: objectToSpawn
+      value: 
+      objectReference: {fileID: 5921323314311213313, guid: ffd0347d2ebac4768a1c60f1c07e61be, type: 3}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: spawnInterval
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_Name
+      value: Wasp Spawner Room 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
 --- !u!1 &690514218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1762,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1398647020}
   - component: {fileID: 1398647019}
-  - component: {fileID: 1398647018}
   m_Layer: 0
   m_Name: Camera Room 1
   m_TagString: Untagged
@@ -1710,14 +1769,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1398647018
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398647017}
-  m_Enabled: 1
 --- !u!20 &1398647019
 Camera:
   m_ObjectHideFlags: 0
@@ -1796,7 +1847,7 @@ GameObject:
   - component: {fileID: 1413734527}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2246,7 +2297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_Name
-      value: Random_Spawner
+      value: Ant Spawner Room 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2263,7 +2314,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2021034967}
   - component: {fileID: 2021034966}
-  - component: {fileID: 2021034965}
   m_Layer: 0
   m_Name: Camera Room 3
   m_TagString: Untagged
@@ -2271,14 +2321,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2021034965
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021034964}
-  m_Enabled: 1
 --- !u!20 &2021034966
 Camera:
   m_ObjectHideFlags: 0
@@ -2350,6 +2392,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1413734528}
   - {fileID: 519673146}
   - {fileID: 1096748437}
   - {fileID: 836795470}
@@ -2361,4 +2404,4 @@ SceneRoots:
   - {fileID: 2021034967}
   - {fileID: 999269524}
   - {fileID: 1043342580}
-  - {fileID: 1413734528}
+  - {fileID: 686862808}

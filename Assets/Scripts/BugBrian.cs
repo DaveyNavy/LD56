@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BugBrianMovement : MonoBehaviour
+public class BugBrian : Enemy
 {
     [SerializeField] public float radialSpeed;
-    [SerializeField] public Rigidbody2D target;
+    [SerializeField] Vector3 position;
 
     [SerializeField] public float radius;
     [SerializeField] public float period;
-    Rigidbody2D rb;
 
     private float theta = 0f;
+    Rigidbody2D rb;
+
+    public BugBrian() : base(2, 2, 10) { }
 
     void Start ()
     {
-        rb = this.gameObject.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update ()
     {
@@ -25,7 +27,7 @@ public class BugBrianMovement : MonoBehaviour
         if (theta >= 2 * Mathf.PI) theta -= 2 * Mathf.PI;
         float vRadial = - radialSpeed;
 
-        Vector3 distanceFromTarget = (transform.position - new Vector3(radius * Mathf.Cos(theta), radius * Mathf.Sin(theta), 0)) - target.transform.position;
+        Vector3 distanceFromTarget = (transform.position - new Vector3(radius * Mathf.Cos(theta), radius * Mathf.Sin(theta), 0)) - position;
         float angle = Mathf.Atan2(distanceFromTarget.y, distanceFromTarget.x);
         
         Vector3 velocity = new Vector3(
