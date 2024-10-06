@@ -46,9 +46,4 @@ public class PlayerController : MonoBehaviour
     {
         mainCamera.transform.position = new Vector3(20, 0, -10);
     }
-
-    void OnSwapRoomThree(InputValue value)
-    {
-        mainCamera.transform.position = new Vector3(40, 0, -10);
-    }
 }
