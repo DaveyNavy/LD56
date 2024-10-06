@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSoundClip: {fileID: 8300000, guid: 8a161192549c5483faabc5b5fdf368fb, type: 3}
+  deathSoundClip: {fileID: 8300000, guid: fd2cce72335164ac59c193fab88eacee, type: 3}
   speed: 1
   position: {x: 0, y: 0, z: 0}
 --- !u!50 &-4726647165829442269
