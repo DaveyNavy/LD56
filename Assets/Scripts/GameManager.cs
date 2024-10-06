@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    bool stopTime = false;
 
     [SerializeField] TextMeshProUGUI scoreText;
     int score = 0;
@@ -40,5 +41,21 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public void StopTime()
+    {
+        stopTime = true;
+        Invoke("RestartTime", 3);
+    }
+
+    private void RestartTime()
+    {
+        stopTime = false;
+    }
+
+    public bool IsTimeStopped()
+    {
+        return stopTime;
     }
 }

@@ -77,6 +77,8 @@ public class Random_Spawn : MonoBehaviour
         }
 
         Vector3 randomPosition = new Vector3(x, y, 0) + offset;
-        Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
+
+        if (!GameManager.instance.IsTimeStopped())
+            Instantiate(objectToSpawn, randomPosition, Quaternion.identity);
     }
 }

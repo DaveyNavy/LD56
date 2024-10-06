@@ -23,8 +23,13 @@ public class BugBrian : Enemy
     }
     void Update ()
     {
-        radialSpeed = baseRadialSpeed + 0.1f * (GameManager.instance.GetScore() / 200);
-
+        if (GameManager.instance.IsTimeStopped())
+        {
+            radialSpeed = 0;
+        } else
+        {
+            radialSpeed = baseRadialSpeed + 0.1f * (GameManager.instance.GetScore() / 200);
+        }
 
         float angularVelocity = 2 * Mathf.PI / period;
         float vTangential = -angularVelocity * radius * Mathf.Sin(theta);

@@ -25,6 +25,13 @@ public class Ant : Enemy
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime);
-        speed = baseSpeed + 0.1f * (GameManager.instance.GetScore() / 100);
+        if (GameManager.instance.IsTimeStopped())
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = baseSpeed + 0.1f * (GameManager.instance.GetScore() / 100);
+        }
     }
 }
