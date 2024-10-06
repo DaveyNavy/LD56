@@ -30,7 +30,6 @@ public class Random_Spawn : MonoBehaviour
 
         bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
         topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, camera.nearClipPlane));
-        Debug.Log(topRight);
 
         StartCoroutine(SpawnObjects());
     }

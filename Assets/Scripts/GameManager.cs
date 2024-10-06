@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     bool stopTime = false;
 
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] GameObject powerUp; 
     int score = 0;
 
     void Awake()
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        InvokeRepeating("SpawnPowerup", 1, 1);
     }
 
     void Update()
@@ -57,5 +60,16 @@ public class GameManager : MonoBehaviour
     public bool IsTimeStopped()
     {
         return stopTime;
+    }
+
+    private void SpawnPowerup()
+    {
+        if (score > 100)
+        {
+            if (Random.Range(0, 5) == 0)
+            {
+                Instantiate(powerUp, new Vector3(0, 0, 0), Quaternion.identity);
+            }
+        }
     }
 }

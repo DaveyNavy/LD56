@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
     private void OnMouseUp()
     {
         TakeDamage(1); 
-        Debug.Log(health);
         if (health > 0)
         {
             AudioSource.PlayClipAtPoint(damageSoundClip, transform.position, 1f);

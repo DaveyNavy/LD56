@@ -19,6 +19,7 @@ public class Ant : Enemy
         direction.Normalize();
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        transform.Rotate(0, 0, -90);
     }
 
     // Update is called once per frame
