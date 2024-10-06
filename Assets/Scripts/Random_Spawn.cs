@@ -18,9 +18,16 @@ public class Mob_Spawner : MonoBehaviour
 
     [SerializeField] Vector3 offset;
 
+    Vector3 bottomLeft;
+    Vector3 topRight;
+
     private void Start()
     {
+        Camera camera = Camera.main;
+        if (camera == null) return;
 
+        bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
+        topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, camera.nearClipPlane));
         StartCoroutine(SpawnObjects());
     }
 
@@ -36,12 +43,6 @@ public class Mob_Spawner : MonoBehaviour
 
     private void SpawnObjectAtRandom()
     {
-        Camera camera = Camera.main;
-        if (camera == null) return;
-
-        Vector3 bottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
-        Vector3 topRight = camera.ViewportToWorldPoint(new Vector3(1, 1, camera.nearClipPlane));
-
         float x = 0;
         float y = 0;
 

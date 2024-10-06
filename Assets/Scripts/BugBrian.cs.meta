@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 13bbded99b304424297cdc19cb081454
+guid: f101bfd98df804d128d16afcfc0a51b6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - eatSoundClip: {fileID: 8300000, guid: dde53afdff29d49aeb59388b8ae7ed5e, type: 3}
-  - food: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
