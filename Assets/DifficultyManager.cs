@@ -40,7 +40,7 @@ public class DifficultyManager : MonoBehaviour
             secondThreshold = true;
             Invoke("HideText", 3);
         }
-        if (!thirdThreshold && GameManager.instance.GetScore() >= 100)
+        if (!thirdThreshold && GameManager.instance.GetScore() >= 200)
         {
             thirdRoomAntSpawner.SetActive(true);
             thirdRoomWaspSpawner.SetActive(true);

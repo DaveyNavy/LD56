@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageSoundClip: {fileID: 8300000, guid: 8a161192549c5483faabc5b5fdf368fb, type: 3}
   deathSoundClip: {fileID: 8300000, guid: fd2cce72335164ac59c193fab88eacee, type: 3}
-  radialSpeed: 1
+  radialSpeed: 0.75
   position: {x: 20, y: 0, z: 0}
   radius: 1
   period: 4

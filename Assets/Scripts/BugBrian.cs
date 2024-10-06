@@ -11,6 +11,7 @@ public class BugBrian : Enemy
     [SerializeField] public float period;
 
     private float theta = 0f;
+    private float baseRadialSpeed;
     Rigidbody2D rb;
 
     public BugBrian() : base(2, 2, 10) { }
@@ -18,9 +19,13 @@ public class BugBrian : Enemy
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
+        baseRadialSpeed = radialSpeed;
     }
     void Update ()
     {
+        radialSpeed = baseRadialSpeed + 0.1f * (GameManager.instance.GetScore() / 200);
+
+
         float angularVelocity = 2 * Mathf.PI / period;
         float vTangential = -angularVelocity * radius * Mathf.Sin(theta);
         theta += angularVelocity * Time.deltaTime;
