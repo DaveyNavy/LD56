@@ -6,7 +6,9 @@ public class Random_Spawn : MonoBehaviour
 {
     public GameObject objectToSpawn;
 
-    public float spawnInterval = 2f;
+    public float spawnInterval;
+
+    public float baseSpawnInterval;
 
     public float spawnAreaSize = 10f;
 
@@ -31,6 +33,11 @@ public class Random_Spawn : MonoBehaviour
         Debug.Log(topRight);
 
         StartCoroutine(SpawnObjects());
+    }
+
+    private void Update()
+    {
+        spawnInterval = baseSpawnInterval - 0.2f * ((int) GameManager.instance.GetScore() / 250);
     }
 
     private IEnumerator SpawnObjects()
