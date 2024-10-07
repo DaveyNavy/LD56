@@ -28,7 +28,8 @@ public class EnemyErratic : Enemy
         velocity.x += noiseSpeed * Mathf.Cos(theta);
         velocity.y += noiseSpeed * Mathf.Sin(theta);
 
-        transform.position += velocity * Time.deltaTime;
+        if (!GameManager.instance.IsTimeStopped())
+            transform.position += velocity * Time.deltaTime;
 
         var vAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         rb.MoveRotation(vAngle - 90);

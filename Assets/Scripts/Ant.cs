@@ -8,6 +8,7 @@ public class Ant : Enemy
     private float baseSpeed;
     [SerializeField] private Vector3 position;
     float angle;
+    Animator animator;
     public Ant() : base(1, 1, 5) { }
 
     private void Awake()
@@ -20,6 +21,7 @@ public class Ant : Enemy
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         transform.Rotate(0, 0, -90);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

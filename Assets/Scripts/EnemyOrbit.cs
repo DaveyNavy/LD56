@@ -32,7 +32,8 @@ public class EnemyOrbit : Enemy
         velocity.Normalize();
         velocity *= (timer >= waitTime) ? higherSpeed : speed;
 
-        transform.position += velocity * Time.deltaTime;
+        if (!GameManager.instance.IsTimeStopped())
+            transform.position += velocity * Time.deltaTime;
         
         var vAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         rb.MoveRotation(vAngle - 90);
