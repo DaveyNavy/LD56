@@ -36,7 +36,7 @@ public class Random_Spawn : MonoBehaviour
 
     private void Update()
     {
-        spawnInterval = baseSpawnInterval - 0.2f * ((int) GameManager.instance.GetScore() / 250);
+        spawnInterval = baseSpawnInterval - 0.3f * ((int) ScoreManager.Score / 150);
     }
 
     private IEnumerator SpawnObjects()

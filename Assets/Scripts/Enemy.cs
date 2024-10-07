@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Kill();
-            GameManager.instance.IncreaseScore(score);
+            ScoreManager.AddScore(score);
             AudioSource.PlayClipAtPoint(deathSoundClip, transform.position, 1f);
         }
     }

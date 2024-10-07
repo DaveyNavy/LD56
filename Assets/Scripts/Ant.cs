@@ -34,7 +34,7 @@ public class Ant : Enemy
         }
         else
         {
-            speed = baseSpeed + 0.1f * (GameManager.instance.GetScore() / 100);
+            speed = baseSpeed + 0.1f * (ScoreManager.Score / 100);
         }
     }
 }

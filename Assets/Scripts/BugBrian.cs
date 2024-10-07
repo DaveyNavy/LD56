@@ -23,6 +23,7 @@ public class BugBrian : Enemy
     }
     void Update ()
     {
+        radialSpeed = baseRadialSpeed + 0.2f * (ScoreManager.Score / 200);
         float angularVelocity = 2 * Mathf.PI / period;
         float vTangential = -angularVelocity * radius * Mathf.Sin(theta);
         theta += angularVelocity * Time.deltaTime;

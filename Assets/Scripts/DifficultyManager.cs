@@ -31,12 +31,29 @@ public class DifficultyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!firstThreshold && GameManager.instance.GetScore() >= 25)
+        if (ScoreManager.Score == 0)
+        {
+            WaspSpawner.SetActive(false);
+            firstThreshold = false;
+
+            secondRoomAntSpawner.SetActive(false);
+            secondRoomWaspSpawner.SetActive(false);
+            secondRoomText.gameObject.SetActive(false);
+            cockroachSpawner.gameObject.SetActive(false);
+            secondThreshold = false;
+
+            thirdRoomAntSpawner.SetActive(false);
+            thirdRoomWaspSpawner.SetActive(false);
+            thirdRoomText.gameObject.SetActive(false);
+            waspSpawner.gameObject.SetActive(false);
+            thirdThreshold = false;
+        }
+        if (!firstThreshold && ScoreManager.Score >= 25)
         {
             WaspSpawner.SetActive(true);
             firstThreshold = true;
         }
-        if (!secondThreshold && GameManager.instance.GetScore() >= 50) {
+        if (!secondThreshold && ScoreManager.Score >= 50) {
             secondRoomAntSpawner.SetActive(true);
             secondRoomWaspSpawner.SetActive(true);
             secondRoomText.gameObject.SetActive(true);
@@ -44,7 +61,7 @@ public class DifficultyManager : MonoBehaviour
             secondThreshold = true;
             Invoke("HideText", 3);
         }
-        if (!thirdThreshold && GameManager.instance.GetScore() >= 200)
+        if (!thirdThreshold && ScoreManager.Score >= 200)
         {
             thirdRoomAntSpawner.SetActive(true);
             thirdRoomWaspSpawner.SetActive(true);

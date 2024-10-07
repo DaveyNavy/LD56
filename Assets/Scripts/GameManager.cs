@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,35 +16,24 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
 
+
         if (instance == null)
         {
-            DontDestroyOnLoad(this.gameObject);
-
             instance = this;
         }
 
-        else if (instance != this)
+        else if (instance != this )
         {
-
             Destroy(gameObject);
         }
+        ScoreManager.InitGame();
 
         InvokeRepeating("SpawnPowerup", 1, 1);
     }
 
     void Update()
     {
-        scoreText.text = "Score: " + score;
-    }
-
-    public void IncreaseScore(int s)
-    {
-        score += s;
-    }
-
-    public int GetScore()
-    {
-        return score;
+        scoreText.text = "Score: " + ScoreManager.Score;
     }
 
     public void StopTime()

@@ -18,12 +18,13 @@ public class MainMenu : MonoBehaviour
 
     public void CreditsMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+2);
+        SceneManager.LoadScene("CreditScene");
     } 
 
     public void PlayAgain()
     {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
+        SceneManager.LoadScene("Main_Menu");
+        ScoreManager.InitGame();
     }
     
 }
