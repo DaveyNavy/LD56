@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject powerUp; 
-    int score = 0;
 
     void Awake()
     {
@@ -54,9 +53,9 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPowerup()
     {
-        if (score > 100)
+        if (ScoreManager.Score > 100)
         {
-            if (Random.Range(0, 5) == 0)
+            if (Random.Range(0,1) == 0)
             {
                 float x = Random.Range(0, 3) * 20;
                 Instantiate(powerUp, new Vector3(x, 0, 0), Quaternion.identity);

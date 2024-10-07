@@ -103,9 +103,6 @@ public class EnemyErratic : Enemy
 
     void FixedUpdate()
     {
-        if (GameManager.instance.IsTimeStopped())
-            return;
-
         // Calculate the direction and speed towards the target position
         Vector3 direction = (targetPosition - transform.position).normalized;
         Vector3 velocity = direction * netSpeed;
@@ -116,10 +113,13 @@ public class EnemyErratic : Enemy
         velocity.y += noiseSpeed * Mathf.Sin(theta);
 
         // Apply velocity to Rigidbody2D, allowing it to interact with forces like knockback
-        rb.velocity = velocity;
+        rb.velocity = (GameManager.instance.IsTimeStopped()) ? Vector3.zero : velocity;
 
         // Rotate the enemy based on the movement direction
-        float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-        rb.MoveRotation(angle - 90);  // Rotate the enemy to face the direction of movement
+        if (!GameManager.instance.IsTimeStopped())
+        {
+            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+            rb.MoveRotation(angle - 90);  // Rotate the enemy to face the direction of movement
+        }
     }
 }

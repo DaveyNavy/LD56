@@ -104,7 +104,7 @@ MonoBehaviour:
   deathSoundClip: {fileID: 8300000, guid: fd2cce72335164ac59c193fab88eacee, type: 3}
   netSpeed: 0.7
   noiseSpeed: 1
-  targetPosition: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 20, y: 0, z: 0}
 --- !u!50 &4708998218919965227
 Rigidbody2D:
   serializedVersion: 4
