@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 908700265035908809}
   - component: {fileID: 4026507019874105445}
   - component: {fileID: 8328551069879146279}
-  - component: {fileID: 6003841838383806072}
+  - component: {fileID: -6503692291504426971}
   m_Layer: 0
   m_Name: knockBackCirclePrefab
   m_TagString: Untagged
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6003841838383806072
+--- !u!114 &-6503692291504426971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

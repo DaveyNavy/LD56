@@ -19,19 +19,62 @@ public class AugmentManager : MonoBehaviour
     public GameObject knockbackCirclePrefab;  // Reference to the knockback circle prefab
     public Transform foodTransform;  // Reference to the food's position
     private KnockbackCircle activeKnockbackCircle;
+    bool hundredMark = false;
+    bool threehundredMark = false;
+    bool sixhundredMark = false;
+    bool eighthundred = false;
+
+    void Update()
+    {
+        if(ScoreManager.Score >= 100 && !hundredMark)
+        {
+            hundredMark = true;
+            //Debug.Log("!!!!!!!!!!!Score > 100, Slow time!!!!!!!!!!");
+            //ApplyAugment(AugmentType.Slow);
+            ApplyAugment(AugmentType.Slow);
+            ApplyAugment(AugmentType.Knockback);
+            ApplyAugment(AugmentType.Knockback);
+        }
+        if (ScoreManager.Score >= 300 && !threehundredMark)
+        {
+            threehundredMark = true;
+            //Debug.Log("!!!!!!!!!!!Score > 300, SLOW + KB time!!!!!!!!!!");
+            ApplyAugment(AugmentType.Slow);
+            ApplyAugment(AugmentType.Knockback);
+            ApplyAugment(AugmentType.RapidSpeed);
+        }
+        if (ScoreManager.Score >= 600 && !sixhundredMark)
+        {
+            sixhundredMark = true;
+            //Debug.Log("!!!!!!!!!!!Score > 600, Slow+KB+SPEEDUP time!!!!!!!!!!");
+            ApplyAugment(AugmentType.Slow);
+            ApplyAugment(AugmentType.Knockback);
+            ApplyAugment(AugmentType.RapidSpeed);
+        }
+        if (ScoreManager.Score >= 800 && !eighthundred)
+        {
+            eighthundred = true;
+            //Debug.Log("!!!!!!!!!!!Score > 600, Slow+KB+SPEEDUP time!!!!!!!!!!");
+            ApplyAugment(AugmentType.Slow);
+            ApplyAugment(AugmentType.Knockback);
+            ApplyAugment(AugmentType.RapidSpeed);
+        }
+    }
     private void Start() 
     {
         knockbackForce = 0;
 
-        Debug.Log("///////////original CDs:" + knockbackCooldown +"  "+ slowCooldown);
+        // Debug.Log("///////////original CDs:" + knockbackCooldown +"  "+ slowCooldown);
         ApplyAugment(AugmentType.Slow);  // Apply slow effect for testing
         ApplyAugment(AugmentType.Knockback);
-        Debug.Log("////////original CDs:" + knockbackCooldown + "  " + slowCooldown);
-        ApplyAugment(AugmentType.RapidSpeed);
-        ApplyAugment(AugmentType.RapidSpeed);
-        ApplyAugment(AugmentType.RapidSpeed);
-        ApplyAugment(AugmentType.RapidSpeed);
-        Debug.Log("///////4x SPEED:" + knockbackCooldown +"  "+ slowCooldown);
+        // Debug.Log("////////original CDs:" + knockbackCooldown + "  " + slowCooldown);
+        // ApplyAugment(AugmentType.RapidSpeed);
+        // ApplyAugment(AugmentType.RapidSpeed);
+        // ApplyAugment(AugmentType.RapidSpeed);
+        // ApplyAugment(AugmentType.RapidSpeed);
+        // ApplyAugment(AugmentType.RapidSpeed);
+
+        // Debug.Log("///////4x SPEED:" + knockbackCooldown +"  "+ slowCooldown);
     }
     //===================================================================//
     //========  ADJUSTING THE AUGMENT STRENGTHS BASED ON POINTS ========//
@@ -53,15 +96,15 @@ public class AugmentManager : MonoBehaviour
     }
     private void ApplyKnockbackBuff()
     {
-        Debug.Log("applying KB by:");
+        // Debug.Log("applying KB by:");
 
         if (augPoints[1] == 0) 
         {
-            Debug.Log("initiating KB");
+            // Debug.Log("initiating KB");
             // Initializing knockback augment for the first time
             augPoints[1] = 1;
-            knockbackForce = 3;
-            knockbackCooldown = 7f; // 7 seconds cooldown
+            knockbackForce = 2;
+            knockbackCooldown = 4f; 
 
             if (augPoints[4] != 0) 
             {
@@ -75,7 +118,7 @@ public class AugmentManager : MonoBehaviour
             // Check if the prefab has the required components
             if (knockbackCircleObj == null)
             {
-                Debug.LogError("Failed to instantiate knockback circle prefab.");
+                // Debug.LogError("Failed to instantiate knockback circle prefab.");
                 return;
             }
 
@@ -84,7 +127,7 @@ public class AugmentManager : MonoBehaviour
                 // Check if the prefab has the required components
             if (knockbackCircleScript == null)
             {
-                Debug.LogError("Failed to instantiate knockback circle script.");
+                // Debug.LogError("Failed to instantiate knockback circle script.");
                 return;
             }
             knockbackCircleScript.knockbackForce = knockbackForce;
@@ -94,12 +137,10 @@ public class AugmentManager : MonoBehaviour
 
             // activeKnockbackCircle.knockbackAugmentActive = knockbackAugmentActive;
             // Debug.Log("coroutine called for KB");
-
-
         }
         else if (augPoints[1] < 5) 
         {
-            Debug.Log("upgrading KB");
+            // Debug.Log("upgrading KB");
 
             // Buffing existing knockback augment
             augPoints[1]++;
@@ -112,40 +153,28 @@ public class AugmentManager : MonoBehaviour
     }
     private void ApplySlowDebuff()
     {
-        // Stop the knockback if it's active
-        if (activeKnockbackCircle != null)
-        {
-            Debug.Log("Stopping knockback effect.");
-            Destroy(activeKnockbackCircle.gameObject);  // Remove the active knockback circle
-            activeKnockbackCircle = null;
-        }
-
-        // Debug to check if any KnockbackCircle is left active
-        KnockbackCircle[] knockbackCircles = FindObjectsOfType<KnockbackCircle>();
-        Debug.Log("Number of active KnockbackCircles: " + knockbackCircles.Length);
         //each slow should occur for a NON SCALING Flat 1.5s
         if (augPoints[3] == 0) 
         {
             // Initializing slow augment for the first time
             augPoints[3] = 1;
-            slowStrength = 0.55f;
-            slowCooldown = 6f; // 4 seconds cooldown
+            slowStrength = 0.35f;
+            slowCooldown = 4f; // 4 seconds cooldown
 
             // If we already have the speed buff active, adjust this skill's cooldown
             if (augPoints[4] != 0) {
                 slowCooldown = 7f - augPoints[4];
             }
 
-            Debug.Log("coroutine calledd for slow");
+            //Debug.Log("coroutine calledd for slow");
             //initiate the coroutine for applying the slow debuff once it is first activated
-            slowAugmentActive = true;
             StartSlowDebuffCoroutine();
         }
         else if (augPoints[3] < 5) 
         {
             // Buffing existing slow augment
             augPoints[3]++;
-            slowStrength += 0.05f;
+            slowStrength += 0.03f;
         }
     }
     private void ApplySpeedBuff()
@@ -160,21 +189,21 @@ public class AugmentManager : MonoBehaviour
             if (activeKnockbackCircle != null)
             {
                 activeKnockbackCircle.knockbackCooldown = knockbackCooldown;
-                Debug.Log("ACTIVE CIRLCE CD:" + activeKnockbackCircle.knockbackCooldown);
+                // Debug.Log("ACTIVE CIRLCE CD:" + activeKnockbackCircle.knockbackCooldown);
             }
         }
         else if (augPoints[4] < 5) 
         {
             // Buffing existing speed augment
             augPoints[4]++;
-            if (augPoints[1] > 0) knockbackCooldown -= 1; // Only adjust if Knockback is active
-            if (augPoints[3] > 0) slowCooldown -= 1; // Only adjust if Slow is active
+            if (augPoints[1] > 0) knockbackCooldown -= 0.2f; // Only adjust if Knockback is active
+            if (augPoints[3] > 0) slowCooldown -= 0.2f; // Only adjust if Slow is active
 
             //PROBLEM: Does not seem like the CD reduction is being propogated to KB script
             if (activeKnockbackCircle != null)
             {
                 activeKnockbackCircle.knockbackCooldown = knockbackCooldown;
-                Debug.Log("ACTIVE CIRLCE CD:" + activeKnockbackCircle.knockbackCooldown);
+                // Debug.Log("ACTIVE CIRLCE CD:" + activeKnockbackCircle.knockbackCooldown);
 
             }
         }
@@ -185,37 +214,36 @@ public class AugmentManager : MonoBehaviour
     //===============================================================//
     private void StartSlowDebuffCoroutine()
     {
-        StartCoroutine(ApplySlowRepeatedly());
+        if (!slowAugmentActive)
+        {
+            slowAugmentActive = true;
+            StartCoroutine(ApplySlowRepeatedly());
+        }
     }
 
     // Coroutine to apply the slow debuff at regular intervals (based on slowCooldown)
-    private IEnumerator ApplySlowRepeatedly()
+   private IEnumerator ApplySlowRepeatedly()
     {
         while (true)
         {
-            //SLOW ANTS BY SLOW STRENGTH
             Ant[] ants = FindObjectsOfType<Ant>();
+            // Slow down all ants
             foreach (Ant ant in ants)
             {
-                Debug.Log("Applying slow to ant:" + ant);
-                //ant.ApplySlow(slowStrength);  // Apply slow to each ant
-                Debug.Log("SLOW current Speed:" + ant.speed + " original speed:" + ant.originalSpeed);
-
-                ant.speed -= slowStrength;
+                // Debug.Log($"Applying slow to ant: {ant}, current speed: {ant.speed}, original speed: {ant.originalSpeed}");
+                ant.speed = Mathf.Max(0.5f - slowStrength, 0);  // Apply slow, ensuring the speed doesn't go negative
             }
 
-            //APPLY THE SLOW FOR THE DURATION TIME
-            yield return new WaitForSeconds(3f);  // Wait for the slow duration
-            
-            //RESTORE ANT SPEED TO REGULAR SPEED
+            // Wait for the duration of the slow debuff
+            yield return new WaitForSeconds(3f);
+
+            // Restore the original speed to all ants
             foreach (Ant ant in ants)
             {
-                Debug.Log("RESTORING current Speed:" + ant.speed + " original speed:" + ant.originalSpeed);
-
-                ant.speed = ant.originalSpeed;
+                ant.speed = 0.5f;  // Restore individual original speed
+                // Debug.Log($"Restoring speed of ant: {ant}, restored speed: {ant.speed}");
             }
 
-            Debug.Log("waiting for cooldown time");
             // Wait for the cooldown before applying the slow debuff again
             yield return new WaitForSeconds(slowCooldown);
         }

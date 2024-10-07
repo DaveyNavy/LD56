@@ -13,7 +13,7 @@ public class KnockbackCircle : MonoBehaviour
     public CircleCollider2D circleCollider; // Reference to the circle collider
     private Vector3 originalScale;        // Store the original scale of the circle
     private bool canKnockback = true;     // Tracks whether knockback can occur
-    private HashSet<Ant> knockedBackAnts = new HashSet<Ant>();  // Track which ants have been knocked back
+    private HashSet<Transform> knockedBackAnts = new HashSet<Transform>();  // Track which ants have been knocked back
 
     public bool knockbackAugmentActive;
 
@@ -23,23 +23,25 @@ public class KnockbackCircle : MonoBehaviour
         originalScale = transform.localScale;
 
         // Start the coroutine to handle expansion, shrinking, and cooldown
-        if (knockbackAugmentActive){
+        if (knockbackAugmentActive)
+        {
             StartCoroutine(ExpandAndShrink());
         }
     }
 
-    private IEnumerator ApplyKnockback(Ant ant)
+    private IEnumerator ApplyKnockbackAnt(Transform ant)
     {
-        Rigidbody2D rb = ant.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        Vector2 direction = (ant.position - transform.position).normalized;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < knockbackDuration)
         {
-            Vector2 direction = (ant.transform.position - transform.position).normalized;
-            rb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
-
-            yield return new WaitForSeconds(knockbackDuration);
-
-            // Stop the knockback by resetting velocity
-            // rb.velocity = Vector2.zero;
+            if (ant != null)
+            {
+                ant.position += (Vector3)direction * knockbackForce * Time.deltaTime;
+            }
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -47,7 +49,7 @@ public class KnockbackCircle : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("expanding");
+            // Debug.Log("expanding");
 
             // Reset knocked-back ants for this expansion cycle
             knockedBackAnts.Clear();
@@ -71,7 +73,7 @@ public class KnockbackCircle : MonoBehaviour
             canKnockback = false; // Disable knockback after the expansion is complete
 
             // Shrink phase
-            Debug.Log("shrinking");
+            // Debug.Log("shrinking");
             while (transform.localScale.x > originalScale.x)
             {
                 transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
@@ -81,7 +83,7 @@ public class KnockbackCircle : MonoBehaviour
             }
 
             // Wait for cooldown before expanding again
-            Debug.Log("waiting KB CD = " + knockbackCooldown);
+            // Debug.Log("waiting KB CD = " + knockbackCooldown);
             yield return new WaitForSeconds(knockbackCooldown);
         }
     }
@@ -90,14 +92,15 @@ public class KnockbackCircle : MonoBehaviour
     private void ApplyKnockbackToAntsInRadius()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, circleCollider.radius);
-        //Debug.Log(hitColliders);
         foreach (Collider2D hitCollider in hitColliders)
         {
+            // Only knock back ants, ignore all other enemies
             Ant ant = hitCollider.GetComponent<Ant>();
-            if (ant != null && canKnockback && !knockedBackAnts.Contains(ant))
+            if (ant != null && canKnockback && !knockedBackAnts.Contains(hitCollider.transform))
             {
-                StartCoroutine(ApplyKnockback(ant));
-                knockedBackAnts.Add(ant);  // Knock back each ant only once per expansion cycle
+                // Debug.Log("==========KNOCKED BACK ANT=====");
+                StartCoroutine(ApplyKnockbackAnt(hitCollider.transform));
+                knockedBackAnts.Add(hitCollider.transform);  // Knock back each ant only once per expansion cycle
             }
         }
     }

@@ -5,14 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("Main_Room");
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void CreditsMenu()
+    {
+        SceneManager.LoadScene("CreditScene");
+    } 
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Main_Menu");
+        ScoreManager.InitGame();
     }
     
 }
