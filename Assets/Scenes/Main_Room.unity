@@ -203,6 +203,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+--- !u!1001 &117230614
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: offset.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: objectToSpawn
+      value: 
+      objectReference: {fileID: 5661839898481931135, guid: e521e8f99bb6f004eb8ac5b58cbca3e3, type: 3}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: spawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: baseSpawnInterval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_Name
+      value: Cockroach Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
 --- !u!1 &315870109
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +540,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403677070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+  m_PrefabInstance: {fileID: 117230614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &435718143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_Name
-      value: Wasp Spawner Room 1
+      value: Fly Spawner Room 1
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_IsActive
@@ -2219,6 +2301,8 @@ MonoBehaviour:
   thirdRoomWaspSpawner: {fileID: 1608063823}
   secondRoomText: {fileID: 839992418}
   thirdRoomText: {fileID: 1387017920}
+  cockroachSpawner: {fileID: 403677070}
+  waspSpawner: {fileID: 2020834533}
 --- !u!4 &1239834897
 Transform:
   m_ObjectHideFlags: 0
@@ -3014,7 +3098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_Name
-      value: Wasp Spawner Room 3
+      value: Fly Spawner Room 3
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_IsActive
@@ -3283,6 +3367,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863048097}
   m_CullTransparentMesh: 1
+--- !u!1001 &1942774684
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: offset.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: objectToSpawn
+      value: 
+      objectReference: {fileID: 902848487669787442, guid: 31a34357ee953064aa03e0ea397b6f94, type: 3}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: spawnInterval
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 134580642374824431, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: baseSpawnInterval
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2313773956984644417, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_Name
+      value: Wasp Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
 --- !u!1 &1993422792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,6 +3601,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+--- !u!1 &2020834533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
+  m_PrefabInstance: {fileID: 1942774684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2021034964
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,7 +3759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_Name
-      value: Wasp Spawner Room 2
+      value: Fly Spawner Room 2
       objectReference: {fileID: 0}
     - target: {fileID: 3761415846459637128, guid: 2d09a2246631ec14880dedb66cf13bc8, type: 3}
       propertyPath: m_IsActive
@@ -3630,6 +3796,8 @@ SceneRoots:
   - {fileID: 686862808}
   - {fileID: 2047829695}
   - {fileID: 1608063822}
+  - {fileID: 117230614}
+  - {fileID: 1942774684}
   - {fileID: 1239834897}
   - {fileID: 1230392272}
   - {fileID: 785405456}
