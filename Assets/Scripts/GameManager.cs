@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         if (ScoreManager.Score > 100)
         {
-            if (Random.Range(0,1) == 0)
+            if (Random.Range(0,7) == 0)
             {
                 float x = Random.Range(0, 3) * 20;
                 Instantiate(powerUp, new Vector3(x, 0, 0), Quaternion.identity);
