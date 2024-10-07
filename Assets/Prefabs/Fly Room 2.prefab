@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 1344991858457771854}
   - component: {fileID: 6687591772217667478}
   m_Layer: 0
-  m_Name: Wasp
+  m_Name: Fly
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   damageSoundClip: {fileID: 8300000, guid: 8a161192549c5483faabc5b5fdf368fb, type: 3}
   deathSoundClip: {fileID: 8300000, guid: fd2cce72335164ac59c193fab88eacee, type: 3}
   radialSpeed: 0.75
-  position: {x: 40, y: 0, z: 0}
+  position: {x: 20, y: 0, z: 0}
   radius: 1
   period: 4
 --- !u!61 &6687591772217667478
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 192905545474582690}
   m_Layer: 0
-  m_Name: Wasp Room 3
+  m_Name: Fly Room 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

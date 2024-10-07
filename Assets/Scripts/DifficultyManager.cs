@@ -17,6 +17,9 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI secondRoomText;
     [SerializeField] TextMeshProUGUI thirdRoomText;
 
+    [SerializeField] GameObject cockroachSpawner;
+    [SerializeField] GameObject waspSpawner;
+
     bool firstThreshold = false;
     bool secondThreshold = false;
     bool thirdThreshold = false;
@@ -37,6 +40,7 @@ public class DifficultyManager : MonoBehaviour
             secondRoomAntSpawner.SetActive(true);
             secondRoomWaspSpawner.SetActive(true);
             secondRoomText.gameObject.SetActive(true);
+            cockroachSpawner.gameObject.SetActive(true);
             secondThreshold = true;
             Invoke("HideText", 3);
         }
@@ -45,6 +49,7 @@ public class DifficultyManager : MonoBehaviour
             thirdRoomAntSpawner.SetActive(true);
             thirdRoomWaspSpawner.SetActive(true);
             thirdRoomText.gameObject.SetActive(true);
+            waspSpawner.gameObject.SetActive(true);
             thirdThreshold = true;
             Invoke("HideText", 3);
         }

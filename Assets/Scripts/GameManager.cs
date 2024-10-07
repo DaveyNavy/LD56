@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
         {
             if (Random.Range(0, 5) == 0)
             {
-                Instantiate(powerUp, new Vector3(0, 0, 0), Quaternion.identity);
+                float x = Random.Range(0, 3) * 20;
+                Instantiate(powerUp, new Vector3(x, 0, 0), Quaternion.identity);
             }
         }
     }

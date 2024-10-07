@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyErratic : MonoBehaviour
+public class EnemyErratic : Enemy
 {
     [SerializeField] public float netSpeed;
     [SerializeField] public float noiseSpeed;
@@ -10,6 +10,8 @@ public class EnemyErratic : MonoBehaviour
 
     Rigidbody2D rb;
     float theta;
+
+    EnemyErratic() : base(5, 2, 25) { }
 
     void Awake()
     {

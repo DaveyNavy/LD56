@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyOrbit : MonoBehaviour
+public class EnemyOrbit : Enemy
 {
     public float speed;
     public float radius;
@@ -12,6 +12,8 @@ public class EnemyOrbit : MonoBehaviour
 
     private float timer;
     private Rigidbody2D rb;
+
+    EnemyOrbit() : base(1, 2, 20) { }
 
     void Awake()
     {

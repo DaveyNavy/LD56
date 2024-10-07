@@ -23,14 +23,6 @@ public class BugBrian : Enemy
     }
     void Update ()
     {
-        if (GameManager.instance.IsTimeStopped())
-        {
-            radialSpeed = 0;
-        } else
-        {
-            radialSpeed = baseRadialSpeed + 0.1f * (GameManager.instance.GetScore() / 200);
-        }
-
         float angularVelocity = 2 * Mathf.PI / period;
         float vTangential = -angularVelocity * radius * Mathf.Sin(theta);
         theta += angularVelocity * Time.deltaTime;
@@ -40,7 +32,7 @@ public class BugBrian : Enemy
         Vector3 distanceFromTarget = (transform.position - new Vector3(radius * Mathf.Cos(theta), radius * Mathf.Sin(theta), 0)) - position;
         float angle = Mathf.Atan2(distanceFromTarget.y, distanceFromTarget.x);
         
-        Vector3 velocity = new Vector3(
+        Vector3 velocity = GameManager.instance.IsTimeStopped()? Vector3.zero : new Vector3(
             vRadial * Mathf.Cos(angle) - vTangential * Mathf.Sin(angle),
             vRadial * Mathf.Sin(angle) + vTangential * Mathf.Cos(angle),
             0
