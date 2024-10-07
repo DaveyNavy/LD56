@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
     [SerializeField] private AugmentManager augmentManager;
+    public bool isWaveAugmentActive = false; 
 
     private int waveCount = 0;
     private const int wavesPerAugment = 3;

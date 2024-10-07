@@ -3,7 +3,9 @@ guid: 12d70891e596f40c3a318eba214fa989
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - knockbackCirclePrefab: {fileID: 2968699402455388440, guid: f54f2d8f3a07f4b9d92d5b42b0060641, type: 3}
+  - foodTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

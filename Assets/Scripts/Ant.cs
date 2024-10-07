@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Ant : Enemy
 {
-    [SerializeField] private float speed;
+    [SerializeField] public float originalSpeed;
+    [SerializeField] public float speed;
     [SerializeField] private Vector3 position;
 
     public Ant() : base(1, 1) { }
+    
+    void Start() 
+    {   
+        //init original speed as a ref point to a mob's unmodified speed
+        originalSpeed = speed;
+    }
 
     // Update is called once per frame
     void Update()
