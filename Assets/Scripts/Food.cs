@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Food : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class Food : MonoBehaviour
             health -= enemy.GetDamageToFood();
             enemy.Kill();
             AudioSource.PlayClipAtPoint(eatSoundClip, transform.position, 1f);
+            if (health == 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+3);
+            }
         }
     }
 
