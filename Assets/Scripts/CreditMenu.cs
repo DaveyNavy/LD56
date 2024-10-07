@@ -8,6 +8,6 @@ public class CreditMenu : MonoBehaviour
     // Start is called before the first frame update
     public void Back()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-2);
+        SceneManager.LoadScene("Main_Menu");
     } 
 }
